@@ -45,6 +45,5 @@ A1_stat = matrix(c(0.5, 0.1,
 A1_nonstat = matrix(c(1.05, 0.1,
                        0.2, 0.95), 2, byrow = TRUE)
 
-y_stat = simulate_var(list(A1_stat), T, Sigma)
-y_nonstat = simulate_var(list(A1_nonstat), T, Sigma)
-
+y_var1_stat = simulate_var(list(A1_stat), T, Sigma)
+y_var1_nonstat = simulate_var(list(A1_nonstat), T, Sigma)
