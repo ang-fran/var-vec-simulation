@@ -47,3 +47,21 @@ A1_nonstat = matrix(c(1.05, 0.1,
 
 y_var1_stat = simulate_var(list(A1_stat), T, Sigma)
 y_var1_nonstat = simulate_var(list(A1_nonstat), T, Sigma)
+
+
+# ---- VAR(2)----
+# Stationary
+A2_1_stat = matrix(c(0.3, 0.1,
+                      0.2, 0.4), nrow = 2, byrow = TRUE)
+
+A2_2_stat = matrix(c(0.2, 0.05,
+                      0.1, 0.1), nrow = 2, byrow = TRUE)
+
+# Nonstationary
+A2_1_nonstat = matrix(c(0.8, 0.3,
+                        0.2, 0.6), nrow=2, byrow=TRUE)
+A2_2_nonstat = matrix(c(0.3, 0.1,
+                        0.1, 0.2), nrow=2, byrow=TRUE)
+
+y_var2_stat = simulate_var(list(A2_1_stat, A2_2_stat), T, Sigma)
+y_var2_nonstat = simulate_var(list(A2_1_nonstat, A2_2_nonstat), T, Sigma)
