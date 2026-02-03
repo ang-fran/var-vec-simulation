@@ -100,3 +100,17 @@ check_var_stationarity = function(A_list) {
     stationary = all(Mod(eig) < 1)
   )
 }
+
+# ---- Visualization ----
+png("figures/var1_stat.png", width = 800, height = 600)
+ts.plot(y_var1_stat, main = "Simulated Stationary VAR(1)", ylab = "Y",
+        col = c("violetred", "seagreen"), lty = c(1,3), lwd = c(0.5, 1))
+legend(
+  "topleft",
+  legend = c("y_1t", "y_2t"),
+  col = c("violetred", "seagreen"),
+  lty = c(1, 3),
+  lwd = c(0.5, 1),
+  bty = "o"
+)
+dev.off()
