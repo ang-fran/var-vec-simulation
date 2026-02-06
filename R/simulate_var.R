@@ -114,3 +114,42 @@ legend(
   bty = "o"
 )
 dev.off()
+
+png("figures/var1_nonstat.png", width = 800, height = 600)
+ts.plot(y_var1_nonstat, main = "Simulated Nonstationary VAR(1)", ylab = "Y",
+        col = c("red", "cyan"), lty = c(1,3), lwd = c(0.5, 1))
+legend(
+  "topleft",
+  legend = c("y_1t", "y_2t"),
+  col = c("red", "cyan"),
+  lty = c(1, 3),
+  lwd = c(0.5, 1),
+  bty = "o"
+)
+dev.off()
+
+png("figures/var2_stat.png", width = 800, height = 600)
+ts.plot(y_var2_stat, main = "Simulated Stationary VAR(2)", ylab = "Y",
+        col = c("royalblue", "hotpink3"), lty = c(1,3), lwd = c(0.5, 1))
+legend(
+  "topleft",
+  legend = c("y_1t", "y_2t"),
+  col = c("royalblue", "hotpink3"),
+  lty = c(1, 3),
+  lwd = c(0.5, 1),
+  bty = "o"
+)
+dev.off()
+
+png("figures/var2_nonstat.png", width = 800, height = 600)
+ts.plot(y_var2_nonstat, main = "Simulated Nonstationary VAR(2)", ylab = "Y",
+        col = c("chocolate4", "darkolivegreen"), lty = c(1,3), lwd = c(0.5, 1))
+legend(
+  "topleft",
+  legend = c("y_1t", "y_2t"),
+  col = c("chocolate4", "darkolivegreen"),
+  lty = c(1, 3),
+  lwd = c(0.5, 1),
+  bty = "o"
+)
+dev.off()
