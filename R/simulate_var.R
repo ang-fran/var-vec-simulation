@@ -153,3 +153,9 @@ legend(
   bty = "o"
 )
 dev.off()
+
+# ---- Lag order selection using IC ----
+VARselect(as.data.frame(y_var1_stat))
+# AIC, HQ, SC, and FPE all result in 1
+VARselect(as.data.frame(y_var1_nonstat))
+# AIC, HQ, SC, and FPE also all result in 1
