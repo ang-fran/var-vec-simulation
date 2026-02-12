@@ -162,5 +162,9 @@ VARselect(as.data.frame(y_var1_nonstat))
 
 # ---- Checking fit using existing package ----
 fit1 = VAR(as.data.frame(y_var1_stat), p = 1, type = "none")
-summary(fit1)
+summary(fit1) 
+
+fit2 = VAR(as.data.frame(y_var2_stat), p = 2, type = "none")
+summary(fit2) 
+
 
