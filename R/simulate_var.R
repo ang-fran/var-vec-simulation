@@ -159,3 +159,8 @@ VARselect(as.data.frame(y_var1_stat))
 # AIC, HQ, SC, and FPE all result in 1
 VARselect(as.data.frame(y_var1_nonstat))
 # AIC, HQ, SC, and FPE also all result in 1
+
+# ---- Checking fit using existing package ----
+fit1 = VAR(as.data.frame(y_var1_stat), p = 1, type = "none")
+summary(fit1)
+
