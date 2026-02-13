@@ -194,3 +194,14 @@ rolling_1step_VAR = function(y, p = 1, h = 50, type = "none") {
   list(yhat = yhat, test = test)
 }
 roll = rolling_1step_VAR(y_var1_stat, p = 1, h = 50)
+
+png("figures/1stepfcst_var1.png", width = 800, height = 600)
+matplot(roll$test, type="l", lty=1, 
+        main="Rolling 1-step Forecast vs Actual",
+        ylab="Value")
+matlines(roll$yhat, lty=2)
+
+legend("topleft",
+       legend=c("Y1 actual","Y2 actual","Y1 forecast","Y2 forecast"),
+       lty=c(1,1,2,2), bty="n")
+dev.off
