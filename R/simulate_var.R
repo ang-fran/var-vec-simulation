@@ -167,4 +167,30 @@ summary(fit1)
 fit2 = VAR(as.data.frame(y_var2_stat), p = 2, type = "none")
 summary(fit2) 
 
-
+# ---------- Forecast evaluation for VAR(1) stationary ----------
+rolling_1step_VAR = function(y, p = 1, h = 50, type = "none") {
+  
+  # Inputs: 
+  # y - Response variable
+  # p - lag order
+  # h - number of forecast steps ahead
+  
+  y = as.data.frame(y)
+  T = nrow(y)
+  
+  yhat = matrix(NA, nrow = h, ncol = ncol(y))
+  colnames(yhat) = colnames(y)
+  
+  for (i in 1:h) {
+    train_end = T - h + i - 1
+    train = y[1:train_end, ]
+    fit = VAR(train, p = p, type = type)
+    
+    fc = predict(fit, n.ahead = 1)
+    yhat[i, ] = sapply(colnames(y), function(v) fc$fcst[[v]][1, "fcst"])
+  }
+  
+  test = as.matrix(y[(T - h + 1):T, ])
+  list(yhat = yhat, test = test)
+}
+roll = rolling_1step_VAR(y_var1_stat, p = 1, h = 50)
